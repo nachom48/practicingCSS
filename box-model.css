@@ -1,0 +1,293 @@
+/* Codigo REseteo Box Sizing */
+
+
+/* 
+ver MDN modelo de caja
+Modelo de Caja
+Es la forma en que CSS ve a los elementos HTML y como los ve? 
+como si fuera una caja con las siguientes propiedades
+
+1.Contenido (content), el centro de la box model,(en su mayoria,es texto,
+ contenido del elemento HTML,tomando en cuenta sus dimensiones, es decir ancho y alto (width & height)
+2.El borde (border): lo que delimita cada uno de los elementos HTML, la frontera
+3. El relleno (padding): Son las distancias internas ,es decir, la distancia del borde al contenido.
+4. El margen, (margin) la distancia entre el elemento HTML y sus elementos hermanos o padres.
+Todo lo que hay afuera de la caja , es el margen.
+
+Dentro del modelo de caja hay que considerar que una caja tendra 4 lados, 
+a)Arriba (top)
+b) derecha(right)
+c) abajo (bottom)
+d) izquierda(left)
+
+*/
+body{
+    margin:0;
+}
+
+
+h1{
+
+    /* Propiedades de shorthand */
+    border-color:green;
+    border-width: medium;
+    /* thin seria igual a 1 px
+       medium son 3 px
+       thick son 5px */
+       border-top-color:red;
+    border-style:solid;
+
+    /* Si tengo q aplicar un mismo estilo para los 4 lados de la caja y a las 3 propiedades con 1 sola linea 
+    con border primero va el tamaño luego va el estilo y dsp va el color  */
+    border:2px dashed blue ;
+    width: 400px;
+    height: 200px;
+}
+
+/* Width y height es el tamaño interno de la caja, donde estan las cosas 
+el cuadrado interno dentro del box model q nos ofrece el navegador*/
+/* 
+El borde delimita a cada elemento HTML, lo q forma esa caja para CSS
+el borde tiene 3 propiedades
+border-color
+border-width
+border-style
+/* Margin y Padding
+se ven juntas, son distancias y lo q cambia es de donde ad onde, el pading es interna, del border al contenido
+y el margin es del borde de la caja al os hermanos o padres */
+.caja-uno,.caja-dos{
+    background-color:chocolate;
+    border:medium solid orange;
+    padding:10px;
+    margin:20px;
+
+    /* 
+    Esto aplica para margins y paddings
+    1 valor=aplicar a los 4 lados
+    2 valores = primer valor es para los lados verticales(top y bottom), segundo valor es para los lados horizontales
+    left y right
+    3 valores = primer valor es para top,segundo valor para la pareja de los lados, y el tercer valor para el bottom
+    4 valores = Piensa en las manecillas del reloj,
+    a)top (12)
+    b)right(3)
+    c)bottom(6)
+    d)left(9)
+     */
+     margin :40px 20px;
+     padding:20px 40px;
+     padding:0 40px 20px 50px;
+     margin:100px 50px 30px 0;
+
+}
+
+/* 
+Las cajas de linea <span> por excelencia
+Son las q afectan textos, todos los elementos de formulario menos el formulario como tal(osea lo q va adentro del formulario)
+y todas las elementos q no son textos onda los de multimedia, todo lo demas es en e bloque
+-ocupan el espacio necsario para mostrar su contenido
+- no tienen dimensiones modificables(ancho y alto)
+-permiten otros elementos a su lado
+-padding y margin solo empujan a elementos adyacentes en horizontal,nunca en vertical
+a un elemento en linea te va aignorar para darle padding o margin vertical
+
+Cajs de bloque <div> por excelencia
+h1/header,footer,nav,section,article,divo
+-Ocupan todo el ancho disponible y generan salto de linea , son envidiosos
+-tienen dimensiones modificables(alto y ancho)
+- No permiten otros elementos as u lado aunque especifique un ancho,siguen ocupando todo el espacio disponible
+a su ancho,generando saltos de linea
+
+*/
+
+.caja-linea,.caja-bloque{
+    background-color:darkcyan;
+    width: 500px;
+    height: 250px;
+color:white;
+border:medium solid black;
+padding:16px;
+
+}
+
+
+.caja-bloque{
+    margin:32px;
+    display:block;
+    
+}
+.caja-linea{
+    margin:48px;
+    display:inline;
+    
+}
+
+/* Propiedad Display */
+
+/* inline
+block
+inline-block(se comporta como un elemento
+ de linea pero acepta modificar sus dimensiones
+dimensiones(alto y ancho)
+none (se oculta)
+table
+list-item 
+flex(ver curso de flexbox)
+grid (ve curso de grid css)*/
+
+.caja-none,.caja-linea-bloque,.caja-hidden{
+    background-color:darkolivegreen;
+    color:white;
+    width:600px;
+    height:300px;
+border:medium   solid black;
+}
+.caja-linea-bloque{
+    display:inline-block;
+}
+
+.caja-none{
+    display:none;
+}
+.caja-hidden{
+    
+    visibility: visible;
+    visibility:hidden;
+}
+/* Con visibility lo unico que hacemos es sacarle la 
+visibilidad,con el display none desaparece y con el otro no s hace visible pero sigue estando
+en la pagina ,respetan el orden  */
+
+/* Con esto la oculto visualmente  */
+
+
+/* Overflow */
+/* overflow-x(ancho caja) */
+/* overflow-y (alto de la caja)
+X defecto es q el contenido sea visible x mas q salga de la caja
+
+
+
+*/
+.overflow{
+    background-color:darkturquoise;
+    width:200px;
+    height:100px;
+    overflow:visible;
+    overflow:hidden;
+    overflow:scroll;
+    overflow:auto;
+    overflow-y:scroll;
+    overflow-x:scroll;
+    /* Desborda el texto y se me mezclan contenidos ,
+    el hidden oculta lo q sale,
+    scroll me aparece dos barras de 
+    desplazamiento para adaptar el contenido*/
+    /* con auto me aparece una barra de desplazamiento
+    en el margen q lo necesite 
+    overfl*/
+}
+
+
+
+/* Tamaño de Caja */
+.box-sizing-content,.box-sizing-border{
+background-color:deepskyblue;
+box-sizing:content-box;
+width:500px;
+height: 250px;
+padding:10px;
+border:thick solid black;
+
+}
+.box-sizing-border{
+    box-sizing:border-box;
+}
+
+.container-col-3{
+    background-color:burlywood;
+    width:600px;
+height:300px;
+    margin-top:20px;
+
+}
+.container-col-3>* {
+    width:200px;
+    border:thin solid red;
+    float:left;
+    box-sizing:border-box;
+    /* Borderbox,cuenta el tamaño del a caja desde el borde mismo
+    conviene hacerlo al principio; hacersleo al html
+
+    */
+
+
+}
+
+/* Codigo de reseteo box sizing
+Paul Irish
+*/
+html{
+    box-sizing:border-box;
+}
+*,*:before,*:after{
+    box-sizing: inherit;
+}
+/* Aca le da el valor de border box a la etiqueta de HTML,al nodo principal,
+y por herencia se lo aplica a todso los elementos q generemos
+con el pseudoelemento before y con el pseudoelemetno after le dice hereda
+la prpiedad box sizing */
+
+
+/* Floats */
+.container-floats{
+    background-color: cornflowerblue;
+}
+.float-left{
+ 
+    float:left;
+}
+.float-right{
+    float:right;
+}
+.clear{
+    clear:both;
+}
+
+
+/* Colapso ed margenes verticales
+ */
+
+ .margin-collapse{
+     background-color: skyblue;
+
+ }
+ .margin-collapse section{
+     border:thin solid black;
+     margin-top:16px;
+     margin-bottom:16px;
+ }
+ .margin-collapse span{
+     border:thin solid black;
+     display:inline-block;
+     margin-right:16px;
+     margin-left:16px;
+ }
+
+
+ /* Centrado de Cajas  PARA QUE QUEDE CENTRADA LA CAJA */
+ .sitio-web{
+     border:thin solid black;
+     background-color:thistle;
+     width:800px;
+     height:1000px;
+     padding:16px;
+     text-align:center;
+     margin-top:200px;
+     /* El text align centra el texto nomas no la caja en si
+     la caja se centra con las margenes */
+     margin-left:auto;
+     margin-right:auto;
+     
+     /* A dos valores el primero es para arriba y abajo y el segundo es para los laterales */
+     
+ }

@@ -1,0 +1,86 @@
+body{
+    margin:0;
+    /* padding-top:50px; */
+    /* Agregandole Padding-top al body ,darle el mismo ancho
+    que la cabecera para q no se superponga con los elementos al ser fijo */
+}
+header{
+
+    background-color:mistyrose;
+    width:100%;
+    height: 50px;
+    /* Si le doy el 100% le doy el ancho de su contenedor,
+    qn este caso es el body */
+}
+
+.fixed-top{
+    position:fixed;
+    top:0;
+}
+
+/* Con la sticky lo arreglaria mas facil */
+.sticky-top{
+position:sticky;
+top:0;
+}
+/* Conviene usar cabecera Sticky con top 0 y sticky y q este definida en primer lugar */
+
+.hero-image{
+    background-color:palegoldenrod;
+    width:100%;
+    height:100vh;
+}
+
+/* Para dejar fijo el titulo ed una seccion y q no se vaya hasta q no se termine de ver
+ */
+
+ .slide{
+     background-color:paleturquoise;
+     width:100%;
+     height: 100vh;
+ }
+
+ .slide:nth-child(odd){
+     background-color:palevioletred;
+ }
+
+ .slide-tittle{
+     background-color:palegreen;
+    padding:16px;
+text-align: center; 
+position:sticky;
+top:50px;
+margin-top:0;
+margin-bottom:0;
+/* Agregando martin top y margin bottom con 0 empuja los titulos  */
+/* Queda fijo solo de la seccion xq la seccion tiene tamaño, el slide */
+}
+
+
+.modal-window{
+    display:none;
+    background-color:black;
+    color:white;
+    position:fixed;
+    top:0;
+    bottom:0;
+    right:0;
+    left:0;
+    opacity:.5;
+    /* La opacidad va del 0 a 1, el 0.5 es la mitad de lo opaco */
+
+}
+
+.modal-window:target{
+    display:block;
+}
+
+/* Margenes Negativos */
+
+.box{
+    background-color:sandybrown;
+    padding:20px;
+    margin-top:-30px;
+    margin-left:-10px;
+    padding-right:-30px;
+}
